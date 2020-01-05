@@ -58,4 +58,21 @@ fn main() {
     ];
     let _array: [i32; 5] = [1, 2, 3, 4, 5];
     let _array_init = [3; 5];
+
+    // Using functions
+    another_function(5);
+    println!("Result of five(): {}", five());
+    println!("99 + 1 = {}", plus_one(99));
+}
+
+fn another_function(x: i32) {
+    println!("The value of x is: {}", x);
+}
+
+fn five() -> i32 {
+    5
+}
+
+fn plus_one(x: i32) -> i32 {
+    x + 1
 }
