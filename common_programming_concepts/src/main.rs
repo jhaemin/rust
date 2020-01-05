@@ -18,4 +18,44 @@ fn main() {
     let spaces = "   ";
     let spaces = spaces.len();
     println!("spaces: {}", spaces);
+
+    // Numeric Operations
+    let sum = 5 + 10;
+    let difference = 95.5 - 4.3;
+    let product = 4 * 30;
+    let quotient = 56.7 / 32.2;
+    let remainder = 43 % 5;
+    println!(
+        "{} {} {} {} {}",
+        sum, difference, product, quotient, remainder
+    );
+
+    // Compound Types
+    // Tuples
+    let tup: (i32, f64, u8) = (500, 6.4, 1);
+
+    // Tuples - Pattern Matching(Destructuing)
+    let (x, y, z) = tup;
+    println!("x: {},  y: {}, z: {}", x, y, z);
+
+    // Tuples - Access with index
+    println!("{} {} {}", tup.0, tup.1, tup.2);
+
+    // Arrays
+    let _months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+    ];
+    let _array: [i32; 5] = [1, 2, 3, 4, 5];
+    let _array_init = [3; 5];
 }
