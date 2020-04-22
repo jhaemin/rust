@@ -6,32 +6,14 @@ This repository is about my learning process of the Rust programming language fr
 
 ### Commands
 
-```bash
-→ rustup update
-```
-
-```bash
-→ cargo --version
-```
-
-```bash
-→ cargo build
-```
-
-```bash
-→ cargo build --release
-```
-
-```bash
-→ cargo check
-```
-
-```bash
-→ cargo run
-```
-
-```bash
-→ cargo doc --open
+```zsh
+rustup update
+cargo --version
+cargo build
+cargo build --release
+cargo check
+cargo run
+cargo doc --open
 ```
 
 ### Keywords
