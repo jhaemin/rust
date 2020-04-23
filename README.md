@@ -47,6 +47,70 @@ fn minus_one(x: i32) -> i32 {
 }
 ```
 
+### Blocks of code evaluate to the last expression in them, and numbers by themselves are also expressions.
+
+## Comments
+
+All programmers strive to make their code easy to understand, but sometimes extra explanation is warranted.
+
+## `if` Expressions
+
+> `if` is an expression
+
+### arms
+
+Blocks of code associated with the conditions in `if` expressions are sometimes called **_arms_**, just like the arms in `match` expressions.
+
+```rust
+fn main() {
+  let number = 3;
+
+  if number < 5 {
+    println!("condition was true");
+  }
+}
+```
+
+It's also worth nothing that the condition in this code _must_ be a `bool`. If the condition isn't a `bool`, we'll get an error.
+
+```rust
+fn main() {
+  let number = 3;
+
+  if number { // Error
+    println!("number was three")'
+  }
+}
+```
+
+Unlike languages such as Ruby and JavaScript, Rust will not automatically try to convert non-Boolean types to a Boolean. You must be explicit and always provide `if` with a Boolean as its condition.
+
+### The values that have the potential to be results from each arm of the `if` must be the same type
+
+```rust
+// Compile error
+
+fn main() {
+  let condition = true;
+
+  let number = if condition {
+    5 // Integer
+  } else {
+    "six" // String
+  };
+}
+```
+
+## `loop`
+
+```rust
+fn main() {
+  loop {
+    println("again");
+  }
+}
+```
+
 ## Cheatsheet
 
 ### Commands
