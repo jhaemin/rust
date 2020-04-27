@@ -111,6 +111,56 @@ fn main() {
 }
 ```
 
+## Ownership
+
+### Ownership Rules
+
+First, let’s take a look at the ownership rules. Keep these rules in mind as we work through the examples that illustrate them:
+
+- Each value in Rust has a variable that’s called its owner.
+- There can only be one owner at a time.
+- When the owner goes out of scope, the value will be dropped.
+
+**Example**
+
+```rust
+{                      // s is not valid here, it’s not yet declared
+    let s = "hello";   // s is valid from this point forward
+
+    // do stuff with s
+}                      // this scope is now over, and s is no longer valid
+```
+
+- When s comes into scope, it is valid.
+- It remains valid until it goes out of scope.
+
+### Ways Variables and Data Interact: Move
+
+```rust
+let x = 5;
+let y = x;
+```
+
+`x` and `y` are both valid.
+
+```rust
+let s1 = String::from("hello");
+let s2 = s1;
+```
+
+`s1` was moved into `s2`. So `s1` is invalid.
+
+### Ways Variables and Data Interact: Clone
+
+```rust
+let s1 = String::from("hello");
+let s2 = s1.clone();
+
+println!("s1 = {}, s2 = {}", s1, s2);
+```
+
+### Stack-Only Data: Copy
+
 ## Cheatsheet
 
 ### Commands
