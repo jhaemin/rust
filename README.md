@@ -167,7 +167,7 @@ println!("s1 = {}, s2 = {}", s1, s2);
 
 ## Structs
 
-```rs
+```rust
 #[derive(Debug)] // For debug print (optional)
 struct Rectangle {
   width: u32,
@@ -179,7 +179,7 @@ struct Rectangle {
 
 Similar to functions but implemented in structs themselves. Their first parameter is always `self`, which represents the instance of the struct the method is being called on.
 
-```rs
+```rust
 impl Rectangle {
   fn area(&self) -> u32 {
     self.width * self.height
@@ -191,7 +191,7 @@ impl Rectangle {
 
 Another useful feature of impl blocks is that we’re allowed to define functions within impl blocks that don’t take self as a parameter. Associated functions are often used for constructors that will return a new instance of the struct.
 
-```rs
+```rust
 impl Rectangle {
   fn square(size: u32) -> Rectangle {
     Rectangle {
@@ -207,7 +207,7 @@ let rect = Rectangle::square(311); // Create a 311 x 311 rectangle
 
 ## Enums
 
-```rs
+```rust
 enum IpAddrKind {
   V4,
   V6,
@@ -222,7 +222,7 @@ route(IpAddrKind::V4);
 route(IpAddrKind::V6);
 ```
 
-```rs
+```rust
 enum IpAddr {
   V4(String),
   V6(String),
@@ -232,7 +232,7 @@ let home = IpAddr::V4(String::from("127.0.0.1"));
 let loopback = IpAddr::V6(String::from("::1"));
 ```
 
-```rs
+```rust
 enum IpAddr {
   V4(u8, u8, u8, u8),
   V6(String),
@@ -250,14 +250,14 @@ In his 2009 presentation “Null References: The Billion Dollar Mistake,” Tony
 
 > I call it my billion-dollar mistake. At that time, I was designing the first comprehensive type system for references in an object-oriented language. My goal was to ensure that all use of references should be absolutely safe, with checking performed automatically by the compiler. But I couldn’t resist the temptation to put in a null reference, simply because it was so easy to implement. This has led to innumerable errors, vulnerabilities, and system crashes, which have probably caused a billion dollars of pain and damage in the last forty years.
 
-```rs
+```rust
 enum Option<T> {
     Some(T),
     None,
 }
 ```
 
-```rs
+```rust
 let some_number = Some(5);
 let some_string = Some("a string");
 
@@ -267,7 +267,7 @@ let absent_number: Option<i32> = None;
 - **Some**: We know that a value is present and the value is held within the `Some`.
 - **None**: In some sense, it means the same thing as null: we don't have a valid value.
 
-```rs
+```rust
 let x: i8 = 5;
 let y: Option<i8> = Some(5);
 
@@ -280,7 +280,7 @@ Only when we have an `Option<i8>` (or whatever type of value we're working with)
 
 ### `match`
 
-```rs
+```rust
 enum Coin {
   Penny,
   Nickel,
@@ -307,7 +307,7 @@ Matches in Rust are exhaustive: we must exhaust every last possibility in order 
 
 **The `_` placeholder**
 
-```rs
+```rust
 let some_u8_value = 0u8;
 match some_u8_value {
     1 => println!("one"),
@@ -317,6 +317,53 @@ match some_u8_value {
     _ => (),
 }
 ```
+
+**`if let`**
+
+```rust
+let some_u8_value = Some(0u8);
+match some_u8_value {
+    Some(3) => println!("three"),
+    _ => (),
+}
+```
+
+```rust
+if let Some(3) = some_u8_value {
+    println!("three");
+}
+```
+
+Two behave the same.
+
+Using `if let` means less typing, less indentation, and less boilerplate code. However, you lose the exhaustive checking that `match` enforces. Choosing between `match` and `if let` depends on what you’re doing in your particular situation and whether gaining conciseness is an appropriate trade-off for losing exhaustive checking.
+
+```rust
+let mut count = 0;
+match coin {
+    Coin::Quarter(state) => println!("State quarter from {:?}!", state),
+    _ => count += 1,
+}
+```
+
+```rust
+let mut count = 0;
+if let Coin::Quarter(state) = coin {
+    println!("State quarter from {:?}!", state);
+} else {
+    count += 1;
+}
+```
+
+Both are equivalent.
+
+## Packages and Crates
+
+A **crate** is a binary or library. The _crate root_ is a source file that the Rust compiler starts from and makes up the root module of your crate.
+
+A **package** is one or more crates that provide a set of functionality. A package contains a _Cargo.toml_ file that describes how to build those crates.
+
+Several rules determine what a package can contain. A package _must_ contain zero or one library crates, and no more. It can contain as many binary crates a you'd like, but it must contain at leat one crate (either library or binary).
 
 ## Cheatsheet
 
