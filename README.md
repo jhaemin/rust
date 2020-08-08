@@ -357,6 +357,26 @@ if let Coin::Quarter(state) = coin {
 
 Both are equivalent.
 
+## Macros
+
+Macros look like functions, except that their name ends with a bang `!`, but instead of generating a function call, macros are expanded into source code that gets compiled with the rest of the program. However, unlike macros in C and other languages, Rust macros are expanded into abstract syntax trees, rather than string preprocessing, so you don't get unexpected precedence bugs.
+
+```rust
+// This is a simple macro named `say_hello`.
+macro_rules! say_hello {
+    // `()` indicates that the macro takes no argument.
+    () => {
+        // The macro will expand into the contents of this block.
+        println!("Hello!");
+    };
+}
+
+fn main() {
+    // This call will expand into `println!("Hello");`
+    say_hello!()
+}
+```
+
 ## Packages and Crates
 
 A **crate** is a binary or library. The _crate root_ is a source file that the Rust compiler starts from and makes up the root module of your crate.
