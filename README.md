@@ -78,7 +78,7 @@ fn main() {
   let number = 3;
 
   if number { // Error
-    println!("number was three")'
+    println!("number was three");
   }
 }
 ```
