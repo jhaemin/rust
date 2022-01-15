@@ -26,10 +26,68 @@ fn shadowing() {
     println!("x: {}", x);
 }
 
-fn data_types() {
-    // let guess = "42".parse().expect("!!");
+fn calc() {
+    let sum = 5 + 10;
+    let difference = 95.5 - 4.3;
+    let product = 4 * 30;
+    let quotient = 56.7 / 32.2;
+    let remainder = 43 % 5;
+}
+
+fn boolean() {
+    let t = true;
+    let f: bool = false;
+}
+
+fn character() {
+    let c = 'z';
+    let z = 'z';
+    let heart_eyed_cat = '😻';
+}
+
+fn compound_types() {
+    /*
+     * Tuples
+     */
+    // let tup: (i32, f64, u8) = (500, 6.4, 1);
+    let tup = (500, 6.4, 1);
+    // Destructuring
+    let (x, y, z) = tup;
+    println!("y: {}", y);
+
+    let five_hundred = tup.0;
+    println!("five_hundred: {}", five_hundred);
+    let six_point_four = tup.1;
+    println!("six_point_four: {}", six_point_four);
+    let one = tup.2;
+    println!("one: {}", one);
+
+    /*
+     * Arrays
+     */
+    // let a: [i32; 5] = [1, 2, 3, 4, 5];
+    let a = [1, 2, 3, 4, 5];
+    let months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+    ];
+
+    let first = a[0];
+    let second = a[1];
+    println!("first: {}", &first);
+    println!("second: {}", &second);
 }
 
 fn main() {
-    data_types();
+    compound_types();
 }
