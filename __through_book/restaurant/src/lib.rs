@@ -29,6 +29,9 @@ pub fn eat_at_restaurant() {
 
     // Relative path
     front_of_house::hosting::add_to_waitlist();
+
+    let order1 = back_of_house::Appetizer::Soup;
+    let order2 = back_of_house::Appetizer::Salad;
 }
 
 fn serve_order() {}
@@ -40,4 +43,9 @@ mod back_of_house {
     }
 
     fn cook_order() {}
+
+    pub enum Appetizer {
+        Soup,
+        Salad,
+    }
 }
