@@ -15,9 +15,13 @@ mod front_of_house {
 }
 
 pub fn eat_at_restaurant() {
-    crate::front_of_house::hosting::add_to_waitlist();
+    // crate::front_of_house::hosting::add_to_waitlist();
 
-    front_of_house::hosting::add_to_waitlist();
+    // front_of_house::hosting::add_to_waitlist();
+
+	let mut meal = back_of_house::Breakfast::summer("Rye Bread");
+	meal.toast = String::from("Wheat Bread");
+	println!("{}", meal.toast);
 }
 
 fn serve_order() {}
