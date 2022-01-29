@@ -25,6 +25,7 @@ mod front_of_house {
 
 use crate::front_of_house::hosting;
 // use self::front_of_house::hosting; // use relative
+use crate::front_of_house::hosting::add_to_waitlist;
 
 pub fn eat_at_restaurant() {
     // Absolute path
@@ -40,10 +41,15 @@ pub fn eat_at_restaurant() {
     meal.toast = String::from("wheat bread");
     println!("Give me the toast of {}", meal.toast);
 
-    // `use crate::front_of_house::hosting`
+    // `use crate::front_of_house::hosting;`
     hosting::add_to_waitlist();
     hosting::add_to_waitlist();
     hosting::add_to_waitlist();
+
+    // `use crate::front_of_house::hosting::add_to_waitlist;`
+    add_to_waitlist();
+    add_to_waitlist();
+    add_to_waitlist();
 }
 
 fn serve_order() {}
