@@ -23,6 +23,8 @@ mod front_of_house {
     }
 }
 
+use crate::front_of_house::hosting;
+
 pub fn eat_at_restaurant() {
     // Absolute path
     crate::front_of_house::hosting::add_to_waitlist();
@@ -36,6 +38,11 @@ pub fn eat_at_restaurant() {
     let mut meal = back_of_house::Breakfast::summer("rye bread");
     meal.toast = String::from("wheat bread");
     println!("Give me the toast of {}", meal.toast);
+
+    // `use crate::front_of_house::hosting`
+    hosting::add_to_waitlist();
+    hosting::add_to_waitlist();
+    hosting::add_to_waitlist();
 }
 
 fn serve_order() {}
