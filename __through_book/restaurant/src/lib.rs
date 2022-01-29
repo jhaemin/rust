@@ -24,6 +24,7 @@ mod front_of_house {
 }
 
 use crate::front_of_house::hosting;
+// use self::front_of_house::hosting; // use relative
 
 pub fn eat_at_restaurant() {
     // Absolute path
