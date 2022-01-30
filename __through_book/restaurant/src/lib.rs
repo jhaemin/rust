@@ -81,3 +81,10 @@ mod back_of_house {
         }
     }
 }
+
+use std::collections::HashMap;
+
+fn hashMapTest() {
+    let mut map = HashMap::new();
+    map.insert(1, 2);
+}
