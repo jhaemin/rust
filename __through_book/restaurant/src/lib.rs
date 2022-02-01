@@ -25,6 +25,7 @@ mod front_of_house {
 
 use crate::front_of_house::hosting;
 // use self::front_of_house::hosting; // use relative
+// pub use crate::front_of_house::hosting; // re-exporting
 use crate::front_of_house::hosting::add_to_waitlist;
 
 pub fn eat_at_restaurant() {
