@@ -108,3 +108,6 @@ fn randTest() {
 // use std::io;
 // use std::io:Write;
 use std::io::{self, Write};
+
+// use globe
+use std::collections::*;
