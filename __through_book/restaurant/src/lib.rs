@@ -91,7 +91,7 @@ fn hashMapTest() {
 }
 
 use std::fmt;
-use std::io;
+// use std::io;
 
 use std::fmt::Result;
 use std::io::Result as IoResult;
@@ -100,3 +100,7 @@ use rand::Rng;
 fn randTest() {
     let secret_number = rand::thread_rng().gen_range(1, 101);
 }
+
+// use std::io;
+// use std::cmp::Ordering;
+use std::{cmp::Ordering, io};
