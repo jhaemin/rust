@@ -103,4 +103,8 @@ fn randTest() {
 
 // use std::io;
 // use std::cmp::Ordering;
-use std::{cmp::Ordering, io};
+// use std::{cmp::Ordering, io};
+
+// use std::io;
+// use std::io:Write;
+use std::io::{self, Write};
